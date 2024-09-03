@@ -1,0 +1,128 @@
+body {
+    background-color: #171412;
+}
+
+p, td, ul, ol {
+    color: #d0d0d0;
+}
+
+h2, h3, h4 {
+    color: #c0b0a0;
+}
+
+h1 {
+    color: #c0a080;
+}
+
+p, td, ul, ol, h1, h2, h3, h4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+    line-height: 160%;
+    list-style-position: outside;
+}
+
+p {
+    line-height: 160%;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #c0a080;
+}
+
+a:visited {
+    color: #807060;
+}
+
+img[src$='#dropshadowable'] {
+    filter: drop-shadow(0 0 12px #d0d0d0);
+}
+
+body {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.navigation {
+    background: #201c17;
+}
+
+.navigation a {
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.navigation a.current {
+    background: #504030;
+}
+
+.navigation a:hover {
+    background: #372c24;
+}
+
+.navigation ol, .navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation li {
+    display: flex;
+    text-indent: 0;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+td {
+    padding: 5px;
+}
+
+@media (min-width: 800px) {
+    img {
+        float: left;
+        margin-right: 50px;
+    }
+
+    td > img {
+        margin-right: 0;
+    }
+}
+
+/* DVD screensaver stuff */
+marquee {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #d0d0d0;
+    background-color: #000000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 0;
+}
+
+.dvd {
+    animation: dvd-hue 90s infinite;
+    padding: 0;
+    margin: 0;
+}
+    
+@keyframes dvd-hue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+  }

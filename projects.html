@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Julio Barba - Personal Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class=navigation>
+        <ul>
+            <li>
+                <a href="index.html">About</a>
+            </li>
+            <li>
+                <a href="projects.html"class="current">Projects</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+            <li>
+                <a href="fun.html">Fun</a>
+            </li>
+        </ul>
+    </nav><h1 id="svt-av1-psy">SVT-AV1-PSY</h1>
+<p><img src="pics/svt-av1-psy.avif" alt="SVT-AV1-PSY" width="300" height="150" /></p>
+<p><a href="https://svt-av1-psy.com">SVT-AV1-PSY</a> is an AV1 software video encoder born from the SVT-AV1 project. Our encoder is designed for optimal perceptual fidelity; we have optimized heavily around pleasing the human visual system, and we aim to provide the best perceptual fidelity available in any AV1 video encoder across a wide quality spectrum.</p>
+<p>As one of the main contributors of this project, I added features that improve quality of life, and encode quality and consistency.</p>
+<h1 id="svt-av1">SVT-AV1</h1>
+<p><img src="pics/av1.avif#dropshadowable" alt="AV1 logo" width="300" height="166" /></p>
+<p><a href="https://gitlab.com/AOMediaCodec/SVT-AV1">SVT-AV1</a> is an open-source software AV1 encoder that is architected to yield excellent quality-speed-latency tradeoffs on CPU platforms for a wide range of video coding applications.</p>
+<p>I worked on upstreaming my Variance Boost feature to mainline SVT-AV1, including <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/issues/2105">research and design</a>, <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/merge_requests/2195">implementation</a>, writing <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/Appendix-Variance-Boost.md">documentation</a>, and <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/merge_requests/2215">bug-fixing</a>.</p>
+<p>One of my goals is to incrementally incorporate SVT-AV1-PSY features back into the SVT-AV1 project, so more people can enjoy the benefits of our improvements.</p>
+<h1 id="azure-devops">Azure DevOps</h1>
+<p><img src="pics/azure-devops.avif" alt="Azure DevOps" width="300" height="198" /></p>
+<p>At <a href="https://azure.microsoft.com/en-us/products/devops">Azure DevOps</a>, I worked with various teams and products. The most notable features I contributed were:</p>
+<ul>
+<li>A new Code Review Service, written from the ground up in ASP.NET and T-SQL, by leveraging the in-house framework to ensure scalability and reliability. This to enable our "Version 2" of the <a href="https://azure.microsoft.com/en-us/products/devops/repos">Pull Request experience</a>, which supports features like code updates, comment tracking, and rich <a href="https://learn.microsoft.com/en-us/rest/api/azure/devops/git/pull-requests?view=azure-devops-rest-7.1">REST API integration</a>.</li>
+<li>Automated test tooling for the initial <a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/gitworkflow?view=azure-devops">Git Server implementation</a>, which include a command-line tool that massively uploaded popular open-source repositories of various sizes and complexities.</li>
+<li>Real-time monitoring and alerting of critical services, by using <a href="https://dataexplorer.azure.com/">Azure Data Explorer</a> to gather telemetry, and an internal monitoring service that triggered alerts on any detected anomalies.</li>
+</ul>
+<h1 id="github">GitHub</h1>
+<p><img src="pics/github.avif" alt="GitHub" width="300" height="188" /></p>
+<p>At <a href="https://github.com">GitHub</a>, I worked for the GitHub Actions team on these things (among others):</p>
+<ul>
+<li>Helped refactor <a href="https://github.com/microsoft/azure-pipelines-agent">Azure Pipelines Agent</a> codebase into the initial version of the <a href="https://github.com/actions/runner">Actions Runner</a>, which included renaming and cleaning up legacy components.</li>
+<li>Assessed the best Azure database solution for an upcoming "private cloud" product (never saw the light 🙁)</li>
+<li>Leveraged my knowledge from Azure DevOps to develop essential "Live Site Incident" infrastructure. I'm proud of a query that detected anomalies in stored procedure performance (total execution time and number of rows read/written) that managed to capture bad regressions just minutes after deploying database updates.</li>
+</ul>
+</body>
+</html>
