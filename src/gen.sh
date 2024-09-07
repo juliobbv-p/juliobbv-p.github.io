@@ -9,6 +9,8 @@ rm -rf tmp
 mkdir tmp
 rm -rf ../pics
 cp -R pics ../
+rm -rf ../scripts
+cp -R scripts ../
 
 for i in *.css; do cp "$i" "../css/$i"; done
 
