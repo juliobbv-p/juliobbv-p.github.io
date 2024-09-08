@@ -90,14 +90,14 @@ td {
     padding: 5px;
 }
 
-#demo-container {
+.demo-container {
     position: relative;
     width: 301px;
     height: 193px;
     overflow: hidden;
 }
 
-#demo, #demo-placeholder {
+#demo, .demo-placeholder {
     position: absolute;
     top: 0;
     left: 0;
