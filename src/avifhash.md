@@ -4,19 +4,19 @@ Leveraging the strengths of the AVIF image format to create **compact** and **ef
 
 ## Examples
 
-<div class="demo-container" id="food" data-hash="QAAspRR38tTnCCis0P8vMwngzz5g">
+<div class="demo-container" id="food" data-hash="AAAspRR38tTnCCis0P8vMwngzz5g">
     <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
     <img id="demo" alt="Food" width="301" height="193" data-src="pics/eat.jpg">
 </div>
 
-AvifHash: `QAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
+AvifHash: `AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
 
-<div class="demo-container" id="girl" data-hash="QAAqjcmbIVKVQbOZOxGF7efgbtHg">
+<div class="demo-container" id="girl" data-hash="AQAqjcmbIVKVQbOZOxGF7efgbtHg">
     <img id="demo-placeholder" alt="Girl Placeholder" width="301" height="193">
     <img id="demo" alt="Girl" width="301" height="193" data-src="pics/girl.jpg">
 </div>
 
-AvifHash: `QAAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
+AvifHash: `AQAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
 
 <script type="module">
 // ToDo: encapsulate logic into library for MVP
@@ -32,7 +32,7 @@ const appendBuffer = function(buffer1, buffer2) {
 };
 
 const demoContainers = document.getElementsByClassName("demo-container");
-const avifHashHeader = "AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUEAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAACcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAgAAAAIAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgSAAAAAAABNjb2xybmNseAABAA0ABoAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAC9tZGF0EgAKCDgIv+UBDQaQMhkcgAAA";
+const avifHeader = "AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUEAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAACcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAgAAAAIAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgSAAAAAAABNjb2xybmNseAABAA0ABoAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAC9tZGF0EgAKCDgIv+UBDQaQMhkcgAAAQA==";
 
 for (const demoContainer of demoContainers) {
     const avifHashImage = demoContainer.dataset.hash;
@@ -40,18 +40,18 @@ for (const demoContainer of demoContainers) {
     const demo = demoContainer.querySelector('#demo');
     const originalUrl = demo.dataset.src;
 
-    const hashHeaderBinary = base64ToBinary(avifHashHeader);
+    const avifHeaderBinary = base64ToBinary(avifHeader);
+    const hashImageBinary = base64ToBinary(avifHashImage);
+    const avifHashHeader = hashImageBinary[0];
 
-    // ToDo: store pic qindex in hash
-    if (originalUrl.includes("girl")) {
-        hashHeaderBinary[296] = 25;
+    // Set qindex (lowest bit)
+    if (avifHashHeader & 1 === 1) {
+        avifHeaderBinary[296] = 25; // qindex 152
     } else {
-        hashHeaderBinary[296] = 28;  
+        avifHeaderBinary[296] = 28; // qindex 200
     }
 
-    const hashImageBinary = base64ToBinary(avifHashImage);
-    const fullImageBinary = appendBuffer(hashHeaderBinary, hashImageBinary);
-
+    const fullImageBinary = appendBuffer(avifHeaderBinary, hashImageBinary.slice(1, hashImageBinary.Length));
     const fullImageBase64 = binaryToBase64(new Uint8Array(fullImageBinary));
     const fullImageData64 = 'data:image/avif;base64,' + fullImageBase64;
 
