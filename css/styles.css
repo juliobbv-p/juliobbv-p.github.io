@@ -90,6 +90,32 @@ td {
     padding: 5px;
 }
 
+#demo-container {
+    position: relative;
+    width: 301px;
+    height: 193px;
+    overflow: hidden;
+}
+
+#demo, #demo-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+#demo-placeholder {
+    filter: blur(8px);
+    transition: opacity 0.2s ease-in-out;
+}
+
+#demo {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
 @media (min-width: 800px) {
     img {
         float: left;

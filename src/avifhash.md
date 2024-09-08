@@ -1,5 +1,8 @@
 # AvifHash (Proof of Concept)
-<img id="demo" alt="Food" width="301" height="193">
+<div id="demo-container">
+    <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
+    <img id="demo" alt="Food" width="301" height="193">
+</div>
 
 AvifHash: `QAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
 
@@ -21,9 +24,16 @@ AvifHash: `QAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
   const fullImageBinary = appendBuffer(base64ToBinary(avifHashHeader), base64ToBinary(avifHashImage));
   const fullImageBase64 = binaryToBase64(new Uint8Array(fullImageBinary));
   const fullImageData64 = 'data:image/avif;base64,' + fullImageBase64;
-
-  // Simulate setting the placeholder first, then the full image loading later on
+  const demoPlaceholder = document.getElementById('demo-placeholder');
   const demo = document.getElementById('demo');
-  demo.src = fullImageData64;
+
+  // Set the placeholder image
+  demoPlaceholder.src = fullImageData64;
+
+  // Load the full image
   setTimeout(() => demo.src = originalUrl, 1000);
+  demo.onload = function() {
+      demo.style.opacity = '1';
+      demoPlaceholder.style.opacity = '0';
+  }
 </script>
