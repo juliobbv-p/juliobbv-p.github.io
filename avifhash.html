@@ -24,17 +24,21 @@
                 <a href="fun.html">Fun</a>
             </li>
         </ul>
-    </nav><h1 id="avifhash-proof-of-concept">AvifHash (Proof of Concept)</h1>
+    </nav><h1 id="avifhashproofofconcept">AvifHash (Proof of Concept)</h1>
 <p>Leveraging the strengths of the AVIF image format to create <strong>compact</strong> and <strong>efficient</strong> image placeholders. Compare to <a href="https://blurha.sh/">BlurHash</a> and <a href="https://evanw.github.io/thumbhash/">ThumbHash</a>.</p>
 <h2 id="examples">Examples</h2>
-<div class="demo-container" id="food" data-hash="AAAspRR38tTnCCis0P8vMwngzz5g">
+<p><div class="demo-container" id="food" data-hash="AAAspRR38tTnCCis0P8vMwngzz5g">
     <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
     <img id="demo" alt="Food" width="301" height="193" data-src="pics/eat.jpg">
+    </p>
+<div class="blur" width="301" height="193">
 </div>
 <p>AvifHash: <code>AAAspRR38tTnCCis0P8vMwngzz5g</code> (28 bytes)</p>
-<div class="demo-container" id="girl" data-hash="AQAqjcmbIVKVQbOZOxGF7efgbtHg">
+<p><div class="demo-container" id="girl" data-hash="AQAqjcmbIVKVQbOZOxGF7efgbtHg">
     <img id="demo-placeholder" alt="Girl Placeholder" width="301" height="193">
     <img id="demo" alt="Girl" width="301" height="193" data-src="pics/girl.jpg">
+    </p>
+<div class="blur" width="301" height="193">
 </div>
 <p>AvifHash: <code>AQAqjcmbIVKVQbOZOxGF7efgbtHg</code> (28 bytes)</p>
 <script type="module">
@@ -57,6 +61,7 @@ for (const demoContainer of demoContainers) {
     const avifHashImage = demoContainer.dataset.hash;
     const demoPlaceholder = demoContainer.querySelector('#demo-placeholder');
     const demo = demoContainer.querySelector('#demo');
+    const blur = demoContainer.querySelector('.blur');
     const originalUrl = demo.dataset.src;
 
     const avifHeaderBinary = base64ToBinary(avifHeader);
@@ -78,10 +83,12 @@ for (const demoContainer of demoContainers) {
     demoPlaceholder.src = fullImageData64;
 
     // Load the full image
+    // ToDo: find a cleaner way to transition from blurred demo placeholder to demo
     setTimeout(() => demo.src = originalUrl, 1000);
     demo.onload = function() {
+        blur.style.opacity = '0';
+        setTimeout(() => demoPlaceholder.style.opacity = '0', 1000);
         demo.style.opacity = '1';
-        demoPlaceholder.style.opacity = '0';
     }
 }
 </script>

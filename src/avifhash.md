@@ -7,6 +7,7 @@ Leveraging the strengths of the AVIF image format to create **compact** and **ef
 <div class="demo-container" id="food" data-hash="AAAspRR38tTnCCis0P8vMwngzz5g">
     <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
     <img id="demo" alt="Food" width="301" height="193" data-src="pics/eat.jpg">
+    <div class="blur" width="301" height="193">
 </div>
 
 AvifHash: `AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
@@ -14,6 +15,7 @@ AvifHash: `AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
 <div class="demo-container" id="girl" data-hash="AQAqjcmbIVKVQbOZOxGF7efgbtHg">
     <img id="demo-placeholder" alt="Girl Placeholder" width="301" height="193">
     <img id="demo" alt="Girl" width="301" height="193" data-src="pics/girl.jpg">
+    <div class="blur" width="301" height="193">
 </div>
 
 AvifHash: `AQAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
@@ -38,6 +40,7 @@ for (const demoContainer of demoContainers) {
     const avifHashImage = demoContainer.dataset.hash;
     const demoPlaceholder = demoContainer.querySelector('#demo-placeholder');
     const demo = demoContainer.querySelector('#demo');
+    const blur = demoContainer.querySelector('.blur');
     const originalUrl = demo.dataset.src;
 
     const avifHeaderBinary = base64ToBinary(avifHeader);
@@ -59,10 +62,12 @@ for (const demoContainer of demoContainers) {
     demoPlaceholder.src = fullImageData64;
 
     // Load the full image
+    // ToDo: find a cleaner way to transition from blurred demo placeholder to demo
     setTimeout(() => demo.src = originalUrl, 1000);
     demo.onload = function() {
+        blur.style.opacity = '0';
+        setTimeout(() => demoPlaceholder.style.opacity = '0', 1000);
         demo.style.opacity = '1';
-        demoPlaceholder.style.opacity = '0';
     }
 }
 </script>

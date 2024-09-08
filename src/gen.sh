@@ -18,7 +18,7 @@ for i in *.md; do
     [ -f "$i" ] || break
     html="${i%.*}.html"
     echo "Generating $html from markdown"
-    showdown makehtml -q -p github -i $i -o tmp/$html
+    showdown makehtml -q -c tables -i $i -o tmp/$html
     cat template_header.txt "tmp/$html" template_footer.txt > ../$html
 
     # Mark current navigation item

@@ -94,20 +94,22 @@ td {
     position: relative;
     width: 301px;
     height: 193px;
-    overflow: hidden;
 }
 
-#demo, .demo-placeholder {
+#demo, .demo-placeholder, .blur {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: fill;
+}
+
+.blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 #demo-placeholder {
-    filter: blur(8px);
     transition: opacity 0.2s ease-in-out;
 }
 
