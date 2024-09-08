@@ -20,6 +20,14 @@ AvifHash: `AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
 
 AvifHash: `AQAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
 
+<div class="demo-container" id="plate" data-hash="AwQA2MhXU0tOZCTf4ATEskog">
+    <img id="demo-placeholder" alt="Plate Placeholder" width="301" height="193">
+    <img id="demo" alt="Plate" width="301" height="193" data-src="pics/plate.jpg">
+    <div class="blur" width="301" height="193">
+</div>
+
+AvifHash: `AwQA2MhXU0tOZCTf4ATEskog` (24 bytes)
+
 <script type="module">
 // ToDo: encapsulate logic into library for MVP
 //import * as AvifHash from '/scripts/avifhash.js';
@@ -47,16 +55,34 @@ for (const demoContainer of demoContainers) {
     const hashImageBinary = base64ToBinary(avifHashImage);
     const avifHashHeader = hashImageBinary[0];
 
+    // Adjust AVIF and OBU size fields
+    avifHeaderBinary[127] = hashImageBinary.length + 18;
+    avifHeaderBinary[277] = hashImageBinary.length + 26;
+    avifHeaderBinary[295] = hashImageBinary.length + 4;
+
+    console.log(hashImageBinary);
+    console.log(avifHeaderBinary[295]);
+
     // Set qindex (lowest bit)
-    if (avifHashHeader & 1 === 1) {
+    if ((avifHashHeader & 1) !== 0) {
         avifHeaderBinary[296] = 25; // qindex 152
     } else {
         avifHeaderBinary[296] = 28; // qindex 200
     }
 
-    const fullImageBinary = appendBuffer(avifHeaderBinary, hashImageBinary.slice(1, hashImageBinary.Length));
+    // extended tx?
+    if ((avifHashHeader & 2) !== 0) {
+        avifHeaderBinary[298] = 1;
+    } else {
+        avifHeaderBinary[298] = 0;
+    }
+
+    const fullImageBinary = appendBuffer(avifHeaderBinary, hashImageBinary.slice(1, hashImageBinary.length));
     const fullImageBase64 = binaryToBase64(new Uint8Array(fullImageBinary));
     const fullImageData64 = 'data:image/avif;base64,' + fullImageBase64;
+
+    console.log(fullImageBinary);
+    console.log(fullImageBase64);
 
     // Set the placeholder image
     demoPlaceholder.src = fullImageData64;
