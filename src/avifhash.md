@@ -1,4 +1,9 @@
 # AvifHash (Proof of Concept)
+
+Leveraging the strengths of the AVIF image format to create **compact** and **efficient** image placeholders. Compare to [BlurHash](https://blurha.sh/) and [ThumbHash](https://evanw.github.io/thumbhash/).
+
+## Examples
+
 <div class="demo-container" id="food" data-hash="QAAspRR38tTnCCis0P8vMwngzz5g">
     <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
     <img id="demo" alt="Food" width="301" height="193" data-src="pics/eat.jpg">
@@ -14,6 +19,7 @@ AvifHash: `QAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
 AvifHash: `QAAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
 
 <script type="module">
+// ToDo: encapsulate logic into library for MVP
 //import * as AvifHash from '/scripts/avifhash.js';
 
 const binaryToBase64 = binary => btoa(String.fromCharCode(...binary));
