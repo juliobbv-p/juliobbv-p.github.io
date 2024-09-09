@@ -36,6 +36,11 @@ Leveraging the strengths of the AVIF image format to create **compact** and **ef
 
 `AUCbZjOsdaCe0K1wg5ybot3nXP6S` (28 bytes)
 </td></tr></table>
+<p>&nbsp</p>
+## Details
+Currently, this PoC relies on manually encoding 8x8 images to AVIF with `avifenc`, then opening them with a hex editor and cropping just the data that makes the actual image, deleting the ISOBMFF and OBU parts. This data is then converted with base64, alongside a 1-byte header that contains essential metadata information required to 're-hydrate' the image back to an AVIF for browser consumption.
+
+So far, results have been very promising. AvifHash retains more detail than other implementations at a given size, and because it's based on AVIF, the door is open to support features like HDR, CICP colorimetry, and an alpha channel.
 <script type="module">
 // ToDo: encapsulate logic into library for MVP
 //import * as AvifHash from '/scripts/avifhash.js';

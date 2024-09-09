@@ -56,6 +56,10 @@
 </div></p>
 <p><code>AUCbZjOsdaCe0K1wg5ybot3nXP6S</code> (28 bytes)
 </td></tr></p></table>
+<p>&nbsp</p>
+<h2 id="details">Details</h2>
+<p>Currently, this PoC relies on manually encoding 8x8 images to AVIF with <code>avifenc</code>, then opening them with a hex editor and cropping just the data that makes the actual image, deleting the ISOBMFF and OBU parts. This data is then converted with base64, alongside a 1-byte header that contains essential metadata information required to 're-hydrate' the image back to an AVIF for browser consumption.</p>
+<p>So far, results have been very promising. AvifHash retains more detail than other implementations at a given size, and because it's based on AVIF, the door is open to support features like HDR, CICP colorimetry, and an alpha channel.</p>
 <script type="module">
 // ToDo: encapsulate logic into library for MVP
 //import * as AvifHash from '/scripts/avifhash.js';
