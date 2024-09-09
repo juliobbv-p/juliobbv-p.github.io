@@ -3,39 +3,39 @@
 Leveraging the strengths of the AVIF image format to create **compact** and **efficient** image placeholders. Compare to [BlurHash](https://blurha.sh/) and [ThumbHash](https://evanw.github.io/thumbhash/).
 
 ## Examples
-
+<table markdown=1><tr><td>
 <div class="demo-container" id="food" data-hash="AAAspRR38tTnCCis0P8vMwngzz5g">
     <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
     <img id="demo" alt="Food" width="301" height="193" data-src="pics/eat.jpg">
     <div class="blur" width="301" height="193">
 </div>
 
-AvifHash: `AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
-
+`AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
+</td><td>
 <div class="demo-container" id="girl" data-hash="AwAqjcmbIVKVQbOZOxGF7efgbtHg">
     <img id="demo-placeholder" alt="Girl Placeholder" width="301" height="193">
     <img id="demo" alt="Girl" width="301" height="193" data-src="pics/girl.jpg">
     <div class="blur" width="301" height="193">
 </div>
 
-AvifHash: `AwAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
-
+`AwAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
+</td></tr><tr><td>
 <div class="demo-container" id="plate" data-hash="BwQA2MhXU0tOZCTf4ATEskog">
     <img id="demo-placeholder" alt="Plate Placeholder" width="301" height="193">
     <img id="demo" alt="Plate" width="301" height="193" data-src="pics/plate.jpg">
     <div class="blur" width="301" height="193">
 </div>
 
-AvifHash: `BwQA2MhXU0tOZCTf4ATEskog` (24 bytes)
-
+`BwQA2MhXU0tOZCTf4ATEskog` (24 bytes)
+</td><td>
 <div class="demo-container" id="coffee" data-hash="AUCbZjOsdaCe0K1wg5ybot3nXP6S">
     <img id="demo-placeholder" alt="Coffee Placeholder" width="301" height="193">
     <img id="demo" alt="Coffee" width="301" height="193" data-src="pics/coffee.jpg">
     <div class="blur" width="301" height="193">
 </div>
 
-AvifHash: `AUCbZjOsdaCe0K1wg5ybot3nXP6S` (28 bytes)
-
+`AUCbZjOsdaCe0K1wg5ybot3nXP6S` (28 bytes)
+</td></tr></table>
 <script type="module">
 // ToDo: encapsulate logic into library for MVP
 //import * as AvifHash from '/scripts/avifhash.js';
