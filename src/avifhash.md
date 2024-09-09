@@ -12,21 +12,29 @@ Leveraging the strengths of the AVIF image format to create **compact** and **ef
 
 AvifHash: `AAAspRR38tTnCCis0P8vMwngzz5g` (28 bytes)
 
-<div class="demo-container" id="girl" data-hash="AQAqjcmbIVKVQbOZOxGF7efgbtHg">
+<div class="demo-container" id="girl" data-hash="AwAqjcmbIVKVQbOZOxGF7efgbtHg">
     <img id="demo-placeholder" alt="Girl Placeholder" width="301" height="193">
     <img id="demo" alt="Girl" width="301" height="193" data-src="pics/girl.jpg">
     <div class="blur" width="301" height="193">
 </div>
 
-AvifHash: `AQAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
+AvifHash: `AwAqjcmbIVKVQbOZOxGF7efgbtHg` (28 bytes)
 
-<div class="demo-container" id="plate" data-hash="AwQA2MhXU0tOZCTf4ATEskog">
+<div class="demo-container" id="plate" data-hash="BwQA2MhXU0tOZCTf4ATEskog">
     <img id="demo-placeholder" alt="Plate Placeholder" width="301" height="193">
     <img id="demo" alt="Plate" width="301" height="193" data-src="pics/plate.jpg">
     <div class="blur" width="301" height="193">
 </div>
 
-AvifHash: `AwQA2MhXU0tOZCTf4ATEskog` (24 bytes)
+AvifHash: `BwQA2MhXU0tOZCTf4ATEskog` (24 bytes)
+
+<div class="demo-container" id="coffee" data-hash="AUCbZjOsdaCe0K1wg5ybot3nXP6S">
+    <img id="demo-placeholder" alt="Coffee Placeholder" width="301" height="193">
+    <img id="demo" alt="Coffee" width="301" height="193" data-src="pics/coffee.jpg">
+    <div class="blur" width="301" height="193">
+</div>
+
+AvifHash: `AUCbZjOsdaCe0K1wg5ybot3nXP6S` (28 bytes)
 
 <script type="module">
 // ToDo: encapsulate logic into library for MVP
@@ -64,14 +72,17 @@ for (const demoContainer of demoContainers) {
     console.log(avifHeaderBinary[295]);
 
     // Set qindex (lowest bit)
-    if ((avifHashHeader & 1) !== 0) {
-        avifHeaderBinary[296] = 25; // qindex 152
-    } else {
-        avifHeaderBinary[296] = 28; // qindex 200
+    const reducedQIndex = avifHashHeader & 3;
+
+    switch (reducedQIndex) {
+        case 0: avifHeaderBinary[296] = 28; break; // qindex 200
+        case 1: avifHeaderBinary[296] = 27; break; // qindex 184   
+        case 2: avifHeaderBinary[296] = 26; break; // qindex 168
+        case 3: avifHeaderBinary[296] = 25; break; // qindex 152
     }
 
     // extended tx?
-    if ((avifHashHeader & 2) !== 0) {
+    if ((avifHashHeader & 4) !== 0) {
         avifHeaderBinary[298] = 1;
     } else {
         avifHeaderBinary[298] = 0;
