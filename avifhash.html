@@ -28,33 +28,33 @@
 <p>Leveraging the strengths of the AVIF image format to create <strong>compact</strong> and <strong>efficient</strong> image placeholders. Compare to <a href="https://blurha.sh/">BlurHash</a> and <a href="https://evanw.github.io/thumbhash/">ThumbHash</a>.</p>
 <h2 id="examples">Examples</h2>
 <table markdown=1><p><tr><td>
-<div class="demo-container" id="food" data-hash="AAAspRR38tTnCCis0P8vMwngzz5g">
+<div class="demo-container" id="food" data-hash="ACylFHfy1OcIKKzQ/y8zCeDPPmA">
     <img id="demo-placeholder" alt="Food Placeholder" width="301" height="193">
     <img id="demo" alt="Food" width="301" height="193" data-src="pics/eat.jpg"></p>
 <p><div class="blur" width="301" height="193">
 </div></p>
-<p><code>AAAspRR38tTnCCis0P8vMwngzz5g</code> (28 bytes)
+<p><code>ACylFHfy1OcIKKzQ/y8zCeDPPmA</code> (27 bytes)
 </td><td>
-<div class="demo-container" id="girl" data-hash="AwAqjcmbIVKVQbOZOxGF7efgbtHg">
+<div class="demo-container" id="girl" data-hash="AyqNyZshUpVBs5k7EYXt5+Bu0eA">
     <img id="demo-placeholder" alt="Girl Placeholder" width="301" height="193">
     <img id="demo" alt="Girl" width="301" height="193" data-src="pics/girl.jpg"></p>
 <p><div class="blur" width="301" height="193">
 </div></p>
-<p><code>AwAqjcmbIVKVQbOZOxGF7efgbtHg</code> (28 bytes)
+<p><code>AyqNyZshUpVBs5k7EYXt5+Bu0eA</code> (27 bytes)
 </td></tr><tr><td>
-<div class="demo-container" id="plate" data-hash="BwQA2MhXU0tOZCTf4ATEskog">
+<div class="demo-container" id="plate" data-hash="A9jIV1NLTmQk3+AExLJKIA">
     <img id="demo-placeholder" alt="Plate Placeholder" width="301" height="193">
     <img id="demo" alt="Plate" width="301" height="193" data-src="pics/plate.jpg"></p>
 <p><div class="blur" width="301" height="193">
 </div></p>
-<p><code>BwQA2MhXU0tOZCTf4ATEskog</code> (24 bytes)
+<p><code>A9jIV1NLTmQk3+AExLJKIA</code> (22 bytes)
 </td><td>
-<div class="demo-container" id="coffee" data-hash="AUCbZjOsdaCe0K1wg5ybot3nXP6S">
+<div class="demo-container" id="coffee" data-hash="BZtmM6x1oJ7QrXCDnJui3edc/pI">
     <img id="demo-placeholder" alt="Coffee Placeholder" width="301" height="193">
     <img id="demo" alt="Coffee" width="301" height="193" data-src="pics/coffee.jpg"></p>
 <p><div class="blur" width="301" height="193">
 </div></p>
-<p><code>AUCbZjOsdaCe0K1wg5ybot3nXP6S</code> (28 bytes)
+<p><code>BZtmM6x1oJ7QrXCDnJui3edc/pI</code> (27 bytes)
 </td></tr></p></table>
 <p>&nbsp</p>
 <h2 id="details">Details</h2>
@@ -74,7 +74,7 @@ const appendBuffer = function(buffer1, buffer2) {
 };
 
 const demoContainers = document.getElementsByClassName("demo-container");
-const avifHeader = "AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUEAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAACcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAgAAAAIAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgSAAAAAAABNjb2xybmNseAABAA0ABoAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAC9tZGF0EgAKCDgIv+UBDQaQMhkcgAAAQA==";
+const avifHeader = "AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUEAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAACcAAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAgAAAAIAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgSAAAAAAABNjb2xybmNseAABAA0ABoAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAC9tZGF0EgAKCDgIv+UBDQaQMhkcgAAAQAA=";
 
 for (const demoContainer of demoContainers) {
     const avifHashImage = demoContainer.dataset.hash;
@@ -88,9 +88,9 @@ for (const demoContainer of demoContainers) {
     const avifHashHeader = hashImageBinary[0];
 
     // Adjust AVIF and OBU size fields
-    avifHeaderBinary[127] = hashImageBinary.length + 18;
-    avifHeaderBinary[277] = hashImageBinary.length + 26;
-    avifHeaderBinary[295] = hashImageBinary.length + 4;
+    avifHeaderBinary[127] = hashImageBinary.length + 19;
+    avifHeaderBinary[277] = hashImageBinary.length + 27;
+    avifHeaderBinary[295] = hashImageBinary.length + 5;
 
     console.log(hashImageBinary);
     console.log(avifHeaderBinary[295]);
@@ -105,11 +105,11 @@ for (const demoContainer of demoContainers) {
         case 3: avifHeaderBinary[296] = 25; break; // qindex 152
     }
 
-    // extended tx?
+    // tx_mode_select
     if ((avifHashHeader & 4) !== 0) {
-        avifHeaderBinary[298] = 1;
+        avifHeaderBinary[301] = 64; // TX_MODE_SELECT
     } else {
-        avifHeaderBinary[298] = 0;
+        avifHeaderBinary[301] = 0; // TX_MODE_LARGEST
     }
 
     const fullImageBinary = appendBuffer(avifHeaderBinary, hashImageBinary.slice(1, hashImageBinary.length));
