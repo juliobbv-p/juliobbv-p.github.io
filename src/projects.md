@@ -1,10 +1,18 @@
+# libaom
+
+![libaom](pics/libaom.avif#dropshadowable =300x150)
+
+[libaom](https://aomedia.googlesource.com/aom/) is an AV1 software video encoder and decoder that functions both as the reference implementation. libaom is used in production to encode [AVIF images](https://en.wikipedia.org/wiki/AVIF).
+
+I ported the "still image" tune from SVT-AV1-PSY to libaom, resulting in improved visual quality and better scores on modern image quality metrics, including SSIMULACRA 2, DSSIM, FLIP, and Butteraugli. Users can generally expect a **10-20% reduction in file size for photographs**. You can find the commit history and details of my changes [here](https://aomedia-review.googlesource.com/q/owner:juliobbv@gmail.com).
+
 # SVT-AV1-PSY
 
 ![SVT-AV1-PSY](pics/svt-av1-psy.avif =300x150)
 
 [SVT-AV1-PSY](https://svt-av1-psy.com) is an AV1 software video encoder born from the SVT-AV1 project. Our encoder is designed for optimal perceptual fidelity; we have optimized heavily around pleasing the human visual system, and we aim to provide the best perceptual fidelity available in any AV1 video encoder across a wide quality spectrum.
 
-As one of the main contributors of this project, I added features that improve quality of life, and encode quality and consistency.
+As one of the main contributors of this project, I added features that improve quality of life, and encode quality and consistency. Most notably, I co-developed a new "still image" tune with [Gianni Rosato](https://giannirosato.com) that improves visual quality for AVIF images, as well as removing important resolution limitations. Visual comparisons can be found [here](https://svt-av1-psy.com/avif/comparisons/index.html).
 
 # SVT-AV1
 
@@ -31,5 +39,5 @@ At [Azure DevOps](https://azure.microsoft.com/en-us/products/devops), I worked w
 
 At [GitHub](https://github.com), I worked for the GitHub Actions team on these things (among others):
 - Helped refactor [Azure Pipelines Agent](https://github.com/microsoft/azure-pipelines-agent) codebase into the initial version of the [Actions Runner](https://github.com/actions/runner), which included renaming and cleaning up legacy components.
-- Assessed the best Azure database solution for an upcoming "private cloud" product (never saw the light :slightly_frowning_face:)
+- Assessed the best Azure database solution for an upcoming "private cloud" product (never saw the light 🙁)
 - Leveraged my knowledge from Azure DevOps to develop essential "Live Site Incident" infrastructure. I'm proud of a query that detected anomalies in stored procedure performance (total execution time and number of rows read/written) that managed to capture bad regressions just minutes after deploying database updates.

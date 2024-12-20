@@ -24,10 +24,14 @@
                 <a href="fun.html">Fun</a>
             </li>
         </ul>
-    </nav><h1 id="svtav1psy">SVT-AV1-PSY</h1>
+    </nav><h1 id="libaom">libaom</h1>
+<p><img src="pics/libaom.avif#dropshadowable" alt="libaom" width="300" height="150" /></p>
+<p><a href="https://aomedia.googlesource.com/aom/">libaom</a> is an AV1 software video encoder and decoder that functions both as the reference implementation. libaom is used in production to encode <a href="https://en.wikipedia.org/wiki/AVIF">AVIF images</a>.</p>
+<p>I ported the "still image" tune from SVT-AV1-PSY to libaom, resulting in improved visual quality and better scores on modern image quality metrics, including SSIMULACRA 2, DSSIM, FLIP, and Butteraugli. Users can generally expect a <strong>10-20% reduction in file size for photographs</strong>. You can find the commit history and details of my changes <a href="https://aomedia-review.googlesource.com/q/owner:juliobbv@gmail.com">here</a>.</p>
+<h1 id="svtav1psy">SVT-AV1-PSY</h1>
 <p><img src="pics/svt-av1-psy.avif" alt="SVT-AV1-PSY" width="300" height="150" /></p>
 <p><a href="https://svt-av1-psy.com">SVT-AV1-PSY</a> is an AV1 software video encoder born from the SVT-AV1 project. Our encoder is designed for optimal perceptual fidelity; we have optimized heavily around pleasing the human visual system, and we aim to provide the best perceptual fidelity available in any AV1 video encoder across a wide quality spectrum.</p>
-<p>As one of the main contributors of this project, I added features that improve quality of life, and encode quality and consistency.</p>
+<p>As one of the main contributors of this project, I added features that improve quality of life, and encode quality and consistency. Most notably, I co-developed a new "still image" tune with <a href="https://giannirosato.com">Gianni Rosato</a> that improves visual quality for AVIF images, as well as removing important resolution limitations. Visual comparisons can be found <a href="https://svt-av1-psy.com/avif/comparisons/index.html">here</a>.</p>
 <h1 id="svtav1">SVT-AV1</h1>
 <p><img src="pics/av1.avif#dropshadowable" alt="AV1 logo" width="300" height="166" /></p>
 <p><a href="https://gitlab.com/AOMediaCodec/SVT-AV1">SVT-AV1</a> is an open-source software AV1 encoder that is architected to yield excellent quality-speed-latency tradeoffs on CPU platforms for a wide range of video coding applications.</p>
@@ -46,7 +50,7 @@
 <p>At <a href="https://github.com">GitHub</a>, I worked for the GitHub Actions team on these things (among others):</p>
 <ul>
 <li>Helped refactor <a href="https://github.com/microsoft/azure-pipelines-agent">Azure Pipelines Agent</a> codebase into the initial version of the <a href="https://github.com/actions/runner">Actions Runner</a>, which included renaming and cleaning up legacy components.</li>
-<li>Assessed the best Azure database solution for an upcoming "private cloud" product (never saw the light :slightly<em>frowning</em>face:)</li>
+<li>Assessed the best Azure database solution for an upcoming "private cloud" product (never saw the light 🙁)</li>
 <li>Leveraged my knowledge from Azure DevOps to develop essential "Live Site Incident" infrastructure. I'm proud of a query that detected anomalies in stored procedure performance (total execution time and number of rows read/written) that managed to capture bad regressions just minutes after deploying database updates.</li>
 </ul>
 </body>
