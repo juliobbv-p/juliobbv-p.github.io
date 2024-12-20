@@ -2,7 +2,7 @@
 
 ![libaom](pics/libaom.avif#dropshadowable =300x150)
 
-[libaom](https://aomedia.googlesource.com/aom/) is an AV1 software video encoder and decoder that functions both as the reference implementation. libaom is used in production to encode [AVIF images](https://en.wikipedia.org/wiki/AVIF).
+[libaom](https://aomedia.googlesource.com/aom/) is an AV1 software video encoder and decoder that functions both as the reference implementation, and is used in production to encode content such as [AVIF images](https://en.wikipedia.org/wiki/AVIF).
 
 I ported the "still image" tune from SVT-AV1-PSY to libaom, resulting in [improved visual quality](pics/woman_ssim_ssimu2.avif) and better scores on modern image quality metrics, including SSIMULACRA 2, DSSIM, FLIP, and Butteraugli. Users can generally expect a **10-20% reduction in file size for photographs**. You can find the commit history and details of my changes [here](https://aomedia-review.googlesource.com/q/owner:juliobbv@gmail.com).
 
