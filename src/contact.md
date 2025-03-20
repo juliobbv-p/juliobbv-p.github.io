@@ -1,6 +1,6 @@
 # Contact
 
-![Laptop](pics/contact.avif =450x300)
+![Laptop](pics/contact.avif =450x338)
 
 For questions about my projects, collaboration requests, or hiring opportunities you can always find me on:
 
