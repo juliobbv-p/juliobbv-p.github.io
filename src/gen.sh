@@ -21,6 +21,9 @@ for i in *.md; do
     showdown makehtml -q -c tables -i $i -o tmp/$html
     cat template_header.txt "tmp/$html" template_footer.txt > ../$html
 
+    # Write title
+    sed -i '' -e "s/{{title}}/${i%.*}/g" ../$html
+
     # Mark current navigation item
     orig=href="\"$html\""
     current=href="\"$html\""class=\"current\"

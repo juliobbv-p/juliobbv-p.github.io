@@ -6,7 +6,7 @@
 
 The goal is to create the best encoding implementation for perceptual quality with AV1, with additional optimizations for HDR encoding and content with film grain.
 
-Currently, there are [HandBrake](https://github.com/Uranite/HandBrake-SVT-AV1-HDR/releases) and [ffmpeg](https://github.com/QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR/releases) **community builds** with SVT-AV1-HDR available.
+Currently, there are [HandBrake](https://github.com/Uranite/HandBrake-SVT-AV1-HDR/releases) and [ffmpeg](https://github.com/QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR/releases) **community builds** with SVT-AV1-HDR available for download.
 
 ## Features
 
