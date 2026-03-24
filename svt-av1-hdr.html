@@ -38,6 +38,7 @@
 <li><strong>PQ-optimized Variance Boost curve</strong>: A custom curve specifically designed for HDR video and images with a Perceptual Quantizer (PQ) transfer.</li>
 <li><strong>Tune 5 (Film Grain)</strong>: An <em>opinionated</em> tune optimized for film grain retention and temporal consistency. The recommended CRF range to use tune 5 is 20 to 40.</li>
 <li><strong>CDEF scaling</strong>: Controls how 'strongly' the CDEF (Constrained Directional Enhancement Filter) is applied to the output.</li>
+<li><strong>Noise</strong>: An alternative way to leverage AV1's Film Grain Synthesis, by generating noise of various sizes and strengths.</li>
 </ul>
 <h2 id="comparison">Comparison</h2>
 <p>The most dramatic improvement can be seen when encoding 4K HDR content with moderate to heavy film grain. Compare a tuned <strong>SVT-AV1</strong> encode against <strong>SVT-AV1-HDR</strong> using film grain tune. SVT-AV1-HDR is able to deliver a video with comparable quality at only <strong>56.6% of the size</strong> of SVT-AV1 (6 Mb/s vs 10.6 Mb/s)! It's worth mentioning that most of our testers preferred the SVT-AV1-HDR encode due to its overall better film grain retention.</p>

@@ -15,6 +15,7 @@ SVT-AV1-HDR contains all of the features from SVT-AV1-PSY, plus a few more:
 - **PQ-optimized Variance Boost curve**: A custom curve specifically designed for HDR video and images with a Perceptual Quantizer (PQ) transfer.
 - **Tune 5 (Film Grain)**: An *opinionated* tune optimized for film grain retention and temporal consistency. The recommended CRF range to use tune 5 is 20 to 40.
 - **CDEF scaling**: Controls how 'strongly' the CDEF (Constrained Directional Enhancement Filter) is applied to the output.
+- **Noise**: An alternative way to leverage AV1's Film Grain Synthesis, by generating noise of various sizes and strengths.
 
 ## Comparison
 
